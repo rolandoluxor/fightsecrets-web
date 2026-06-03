@@ -44,11 +44,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
           <Image
-            src="/images/logo.png"
+            src="/images/logo-transparent.png"
             alt="Fight Secrets"
-            width={200}
-            height={76}
-            style={{ objectFit: "contain", display: "block" }}
+            width={160}
+            height={105}
+            style={{ objectFit: "contain", display: "block", height: "68px", width: "auto" }}
             priority
           />
         </Link>

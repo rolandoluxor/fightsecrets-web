@@ -23,11 +23,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/images/logo.png"
+              src="/images/logo-transparent.png"
               alt="Fight Secrets"
-              width={140}
-              height={48}
-              style={{ objectFit: "contain", marginBottom: "16px" }}
+              width={120}
+              height={78}
+              style={{ objectFit: "contain", height: "52px", width: "auto", marginBottom: "16px" }}
             />
             <p style={{ fontFamily: "'Inter', sans-serif", color: "#B7BDC5", fontSize: "13px", lineHeight: "1.7", maxWidth: "280px", marginBottom: "16px" }}>
               Elite self-defense training from UFC champion and Special Forces
