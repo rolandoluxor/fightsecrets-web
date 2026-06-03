@@ -1,19 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
+/* ─── BRAND TOKENS (from Fightsecrets.com.pdf) ─── */
 :root {
-  --red: #CC1122;
-  --red-bright: #E8192C;
-  --silver: #8A8A8A;
-  --silver-light: #C0C0C0;
-  --black: #080808;
-  --surface: #101010;
-  --surface-2: #181818;
-  --surface-3: #222222;
-  --border: rgba(255,255,255,0.07);
-  --text-primary: #EFEFEF;
-  --text-secondary: #8A8A8A;
+  /* Backgrounds */
+  --black:      #0A0A0A;   /* Obsidian Black */
+  --surface:    #1A1D21;   /* Charcoal Steel */
+  --surface-2:  #141619;   /* slightly darker panel */
+  --surface-3:  #222629;   /* elevated card */
+  --border:     #2C3138;   /* Gunmetal Gray */
+
+  /* Text */
+  --text-primary:   #F2F4F6;  /* Main Headlines / White */
+  --text-body:      #C7CCD1;  /* Silver Steel */
+  --text-secondary: #B7BDC5;  /* Body Text Light Gray */
+  --text-muted:     #7A828C;  /* Secondary Muted Gray */
+  --silver:         #C7CCD1;
+  --silver-light:   #E0E4E8;
+
+  /* Brand Red */
+  --red:        #B5121B;   /* Deep Tactical Red — PRIMARY */
+  --red-hover:  #7E0C13;   /* Dark Crimson — hover/secondary */
+  --red-bright: #B5121B;   /* alias kept for compatibility */
+
+  /* Gold (reserved, very limited) */
+  --gold:       #B08D57;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,30 +34,23 @@ html { scroll-behavior: smooth; }
 
 body {
   background-color: var(--black);
-  color: var(--text-primary);
+  color: var(--text-body);
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.font-display {
-  font-family: 'Barlow Condensed', sans-serif;
+/* Oswald for all display text */
+.font-display,
+h1, h2, h3, h4 {
+  font-family: 'Oswald', sans-serif;
 }
 
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
 
-.text-red-brand { color: var(--red-bright); }
-
-.red-divider {
-  display: block;
-  width: 48px;
-  height: 3px;
-  background: var(--red-bright);
-  border-radius: 2px;
-}
-
+/* ─── ANIMATIONS ─── */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(32px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -63,54 +68,74 @@ body {
   to   { opacity: 1; transform: translateX(0); }
 }
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.92); }
+  from { opacity: 0; transform: scale(0.93); }
   to   { opacity: 1; transform: scale(1); }
 }
+@keyframes heroZoom {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.0); }
+}
 @keyframes redLineGrow {
-  from { width: 0; }
-  to   { width: 48px; }
+  from { width: 0; opacity: 0; }
+  to   { width: 48px; opacity: 1; }
 }
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-@keyframes pulseRed {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232,25,44,0.35); }
-  50%       { box-shadow: 0 0 0 12px rgba(232,25,44,0); }
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  50%       { opacity: 0.3; transform: scaleY(0.55); transform-origin: top; }
 }
 
-.animate-fade-in-up    { animation: fadeInUp 0.75s ease forwards; }
-.animate-fade-in       { animation: fadeIn 1s ease forwards; }
-.animate-fade-in-left  { animation: fadeInLeft 0.75s ease forwards; }
-.animate-fade-in-right { animation: fadeInRight 0.75s ease forwards; }
+/* ─── PRIMARY CTA BUTTON ─── */
+/* Use only in: Hero, Training, Seminars, Final CTA */
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  display: inline-block;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background: var(--red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(181,18,27,0.3);
+}
+.btn-primary:active { transform: translateY(0); }
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }
+/* ─── SECONDARY CTA (exploratory / educational) ─── */
+.btn-secondary {
+  background: transparent;
+  color: var(--silver-light);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  display: inline-block;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.btn-secondary:hover {
+  border-color: rgba(181,18,27,0.5);
+  color: #fff;
+}
 
-/* Card hover lift */
+/* ─── CARD HOVER ─── */
 .card-hover {
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  border-color: rgba(204,17,34,0.3) !important;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(204,17,34,0.1);
+  border-color: rgba(181,18,27,0.3) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
 }
-
-/* Red CTA button hover */
-.btn-red {
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-}
-.btn-red:hover {
-  background: #FF1E33 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(232,25,44,0.35);
-}
-.btn-red:active { transform: translateY(0); }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

@@ -4,56 +4,56 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Private Training | Fight Secrets — James Wilks",
   description:
-    "Private coaching, 2-day intensives, and corporate training programs from UFC champion and Special Forces instructor James Wilks.",
+    "Train Privately with James Wilks. In-person coaching, 2-Day Elite Intensives, and Video Consults.",
 };
 
 const programs = [
   {
     id: "private",
-    label: "Private Coaching",
-    tagline: "One-on-one. Elite access.",
+    label: "Private Training",
+    tagline: "In-Person Training in Orange County",
     description:
-      "James works personally with a small number of private clients each year. Sessions are tailored entirely to your background, goals, and threat profile — whether you're a professional requiring operational readiness or an individual focused on personal protection.",
+      "Train consistently with James through highly personalized instruction tailored to your goals, experience level, and physical capabilities.",
     details: [
-      "Fully customized curriculum",
-      "In-person in Orange County, CA or travel available",
-      "Minimum 4-session engagement",
-      "Available to civilians, executives, and security professionals",
+      "Hourly Sessions",
+      "Customized Coaching",
+      "Progressive Skill Development",
+      "1–4 people (partner & small-group training encouraged)",
+      "No prior experience required",
     ],
-    cta: "Inquire About Private Coaching",
-    href: "/contact",
+    cta: "Book Private Training",
     featured: false,
   },
   {
     id: "intensive",
-    label: "2-Day Intensive",
-    tagline: "Deep immersion. Total transformation.",
+    label: "2-Day Elite Intensives",
+    tagline: "Immersive Tactical Development",
     description:
-      "The signature Fight Secrets experience. Two full days with James covering all three phases of the method — Prepare, Protect, Prevail — with live drilling, stress inoculation, and Q&A. Limited to small groups to ensure personal attention.",
+      "For accelerated learning, James offers premium 2-day immersive experiences in Orange County, California, or can travel for on-site intensives.",
     details: [
-      "Covers the complete Fight Secrets curriculum",
-      "Small groups of 6–12 participants max",
-      "Held in Orange County, CA",
-      "Available for private groups and organizations",
+      "Tactical development",
+      "Accelerated skill acquisition",
+      "Concentrated hands-on instruction",
+      "Available in Orange County or on-site travel",
+      "Small groups or private",
     ],
-    cta: "Apply For An Intensive",
-    href: "/contact",
+    cta: "Apply for an Intensive",
     featured: true,
   },
   {
-    id: "corporate",
-    label: "Corporate & Organization Training",
-    tagline: "For teams that need to be ready.",
+    id: "consult",
+    label: "Video Consults",
+    tagline: "Remote Tactical & Self-Defense Consulting",
     description:
-      "Custom training programs for corporations, security firms, law enforcement agencies, and military units. James works with your leadership to design curriculum appropriate to your team's role, environment, and risk profile.",
+      "For clients outside Southern California, James offers private video consultations tailored to your goals and self-defense development.",
     details: [
-      "Scalable to any team size",
-      "Custom curriculum for your context",
-      "Travel nationwide and internationally",
-      "Ongoing program development available",
+      "Self-defense philosophy & priorities",
+      "Personalized training priorities",
+      "Select virtual technique coaching",
+      "Available worldwide",
+      "Flexible scheduling",
     ],
-    cta: "Request A Corporate Program",
-    href: "/contact",
+    cta: "Schedule a Consult",
     featured: false,
   },
 ];
@@ -62,159 +62,131 @@ export default function TrainingPage() {
   return (
     <>
       {/* HERO */}
-      <section style={{ padding: "140px 24px 80px", background: "var(--black)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "140px 24px 80px", background: "#0A0A0A", position: "relative", overflow: "hidden" }}>
         <div
           style={{
-            position: "absolute",
-            inset: 0,
-            background: "radial-gradient(ellipse at 30% 60%, rgba(204,17,34,0.07) 0%, transparent 60%)",
+            position: "absolute", inset: 0,
+            background: "radial-gradient(ellipse at 30% 60%, rgba(181,18,27,0.06) 0%, transparent 55%)",
             pointerEvents: "none",
           }}
         />
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <span style={{ display: "block", width: "48px", height: "3px", background: "var(--red-bright)", borderRadius: "2px", marginBottom: "24px" }} />
+          <span style={{ display: "block", width: "40px", height: "2px", background: "#B5121B", marginBottom: "20px" }} />
           <span
             style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "var(--red-bright)",
-              display: "block",
-              marginBottom: "16px",
+              fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600,
+              letterSpacing: "0.22em", textTransform: "uppercase", color: "#B5121B",
+              display: "block", marginBottom: "14px",
             }}
           >
             Work With James
           </span>
           <h1
             style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: "clamp(48px, 8vw, 96px)",
-              fontWeight: 900,
-              lineHeight: 0.95,
-              textTransform: "uppercase",
-              color: "#fff",
-              maxWidth: "700px",
-              marginBottom: "24px",
+              fontFamily: "'Oswald', sans-serif",
+              fontSize: "clamp(44px, 7vw, 88px)",
+              fontWeight: 700, lineHeight: 1.0,
+              textTransform: "uppercase", letterSpacing: "0.02em",
+              color: "#F2F4F6", maxWidth: "700px", marginBottom: "20px",
             }}
           >
-            Training
+            Train Privately
             <br />
-            <span style={{ color: "var(--red-bright)" }}>Programs</span>
+            <span style={{ color: "#B5121B" }}>with James Wilks</span>
           </h1>
-          <p style={{ fontSize: "18px", color: "var(--text-secondary)", maxWidth: "560px", lineHeight: "1.65" }}>
-            James works with a carefully selected group of clients each year.
-            Choose the program that matches your needs.
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "17px", color: "#B7BDC5", maxWidth: "540px", lineHeight: "1.7" }}>
+            Direct access to James&apos; uniquely comprehensive approach to
+            real-world protection. No prior experience is required.
           </p>
         </div>
       </section>
 
       {/* PROGRAMS */}
-      <section style={{ padding: "80px 24px 120px", background: "var(--black)" }}>
+      <section style={{ padding: "80px 24px 120px", background: "#0A0A0A" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2px" }} className="programs-grid">
+          <div
+            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2px" }}
+            className="programs-grid"
+          >
             {programs.map((prog) => (
               <div
                 key={prog.id}
                 style={{
-                  background: prog.featured ? "rgba(204,17,34,0.06)" : "var(--surface-2)",
-                  border: prog.featured ? "1px solid rgba(204,17,34,0.25)" : "1px solid var(--border)",
-                  padding: "48px 40px",
+                  background: prog.featured ? "rgba(181,18,27,0.05)" : "#1A1D21",
+                  border: prog.featured ? "1px solid rgba(181,18,27,0.25)" : "1px solid #2C3138",
+                  padding: "48px 36px",
                   position: "relative",
                   display: "flex",
                   flexDirection: "column",
+                  transition: "border-color 0.25s",
                 }}
               >
                 {prog.featured && (
                   <div
                     style={{
-                      position: "absolute",
-                      top: "0",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      background: "var(--red-bright)",
-                      color: "#fff",
-                      fontFamily: "'Barlow Condensed', sans-serif",
-                      fontSize: "11px",
-                      fontWeight: 700,
-                      letterSpacing: "0.15em",
-                      textTransform: "uppercase",
-                      padding: "6px 16px",
+                      position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
+                      background: "#B5121B", color: "#fff",
+                      fontFamily: "'Inter', sans-serif", fontSize: "10px", fontWeight: 600,
+                      letterSpacing: "0.15em", textTransform: "uppercase", padding: "5px 16px",
                     }}
                   >
                     Signature Program
                   </div>
                 )}
-                <div style={{ marginTop: prog.featured ? "20px" : 0 }}>
+
+                <div style={{ flex: 1, marginTop: prog.featured ? "16px" : 0 }}>
                   <h2
                     style={{
-                      fontFamily: "'Barlow Condensed', sans-serif",
-                      fontSize: "28px",
-                      fontWeight: 800,
-                      textTransform: "uppercase",
-                      color: prog.featured ? "var(--red-bright)" : "#fff",
-                      marginBottom: "8px",
-                      letterSpacing: "0.03em",
+                      fontFamily: "'Oswald', sans-serif", fontSize: "26px", fontWeight: 600,
+                      textTransform: "uppercase", letterSpacing: "0.05em",
+                      color: prog.featured ? "#B5121B" : "#F2F4F6", marginBottom: "6px",
                     }}
                   >
                     {prog.label}
                   </h2>
                   <p
                     style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: "12px",
-                      fontWeight: 600,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      color: "var(--text-secondary)",
-                      marginBottom: "24px",
+                      fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 500,
+                      letterSpacing: "0.08em", textTransform: "uppercase",
+                      color: "#7A828C", marginBottom: "20px",
                     }}
                   >
                     {prog.tagline}
                   </p>
-                  <div style={{ width: "32px", height: "2px", background: "var(--red-bright)", marginBottom: "24px", borderRadius: "1px" }} />
-                  <p style={{ fontSize: "15px", lineHeight: "1.75", color: "var(--text-secondary)", marginBottom: "32px" }}>
+                  <span style={{ display: "block", width: "30px", height: "1px", background: "#B5121B", marginBottom: "20px" }} />
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", lineHeight: "1.75", color: "#B7BDC5", marginBottom: "28px" }}>
                     {prog.description}
                   </p>
-                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px", marginBottom: "40px", flex: 1 }}>
+                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px", marginBottom: "36px" }}>
                     {prog.details.map((d) => (
-                      <li key={d} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                      <li key={d} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
                         <span
                           style={{
-                            width: "6px",
-                            height: "6px",
-                            borderRadius: "50%",
-                            background: "var(--red-bright)",
-                            flexShrink: 0,
-                            marginTop: "7px",
+                            width: "5px", height: "5px", borderRadius: "50%",
+                            background: "#B5121B", flexShrink: 0, marginTop: "6px",
                           }}
                         />
-                        <span style={{ fontSize: "14px", color: "var(--text-primary)", lineHeight: "1.5" }}>{d}</span>
+                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#C7CCD1", lineHeight: "1.5" }}>{d}</span>
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href={prog.href}
-                    style={{
-                      display: "block",
-                      textAlign: "center",
-                      background: prog.featured ? "var(--red-bright)" : "transparent",
-                      color: "#fff",
-                      border: prog.featured ? "none" : "1px solid rgba(255,255,255,0.2)",
-                      fontFamily: "'Barlow Condensed', sans-serif",
-                      fontSize: "15px",
-                      fontWeight: 700,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      padding: "14px 24px",
-                      textDecoration: "none",
-                      borderRadius: "2px",
-                    }}
-                  >
-                    {prog.cta}
-                  </Link>
                 </div>
+
+                <Link
+                  href="/contact"
+                  className={prog.featured ? "btn-primary" : "btn-secondary"}
+                  style={{
+                    display: "block",
+                    textAlign: "center",
+                    fontSize: "13px",
+                    fontWeight: prog.featured ? 600 : 500,
+                    padding: "14px 24px",
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {prog.cta}
+                </Link>
               </div>
             ))}
           </div>
@@ -222,23 +194,14 @@ export default function TrainingPage() {
         <style>{`@media(max-width:768px){.programs-grid{grid-template-columns:1fr!important;}}`}</style>
       </section>
 
-      {/* NOTE */}
-      <section
-        style={{
-          padding: "80px 24px",
-          background: "var(--surface)",
-          borderTop: "1px solid var(--border)",
-          textAlign: "center",
-        }}
-      >
+      {/* JAMES QUOTE */}
+      <section style={{ padding: "80px 24px", background: "#1A1D21", borderTop: "1px solid #2C3138", textAlign: "center" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+          <span style={{ display: "block", width: "40px", height: "1px", background: "#B5121B", margin: "0 auto 28px" }} />
           <p
             style={{
-              fontSize: "16px",
-              lineHeight: "1.8",
-              color: "var(--text-secondary)",
-              fontStyle: "italic",
-              marginBottom: "24px",
+              fontFamily: "'Inter', sans-serif", fontSize: "17px", lineHeight: "1.8",
+              color: "#C7CCD1", fontStyle: "italic", marginBottom: "20px",
             }}
           >
             &ldquo;I don&apos;t take every client. I work with people who are genuinely
@@ -247,17 +210,30 @@ export default function TrainingPage() {
           </p>
           <p
             style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: "16px",
-              fontWeight: 700,
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
-              color: "#fff",
+              fontFamily: "'Oswald', sans-serif", fontSize: "15px", fontWeight: 600,
+              letterSpacing: "0.1em", textTransform: "uppercase", color: "#F2F4F6",
+              marginBottom: "32px",
             }}
           >
             — James Wilks
           </p>
+          <Link
+            href="/contact"
+            className="btn-primary"
+            style={{ fontSize: "14px", fontWeight: 600, padding: "15px 36px", letterSpacing: "0.08em" }}
+          >
+            Apply for Training
+          </Link>
         </div>
+        <p
+          style={{
+            fontFamily: "'Oswald', sans-serif", fontSize: "12px", fontWeight: 500,
+            letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A828C",
+            marginTop: "48px",
+          }}
+        >
+          Prepare | Protect | Prevail
+        </p>
       </section>
     </>
   );

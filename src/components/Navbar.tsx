@@ -5,9 +5,9 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "About", href: "/about" },
+  { label: "About James", href: "/about" },
   { label: "The Method", href: "/method" },
-  { label: "Training", href: "/training" },
+  { label: "Private Training", href: "/training" },
   { label: "Seminars", href: "/seminars" },
   { label: "Contact", href: "/contact" },
 ];
@@ -26,31 +26,22 @@ export default function Navbar() {
     <header
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
+        top: 0, left: 0, right: 0,
         zIndex: 100,
-        background: scrolled
-          ? "rgba(8,8,8,0.95)"
-          : "linear-gradient(to bottom, rgba(8,8,8,0.85), transparent)",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none",
-        transition: "all 0.3s ease",
+        background: scrolled ? "rgba(10,10,10,0.96)" : "linear-gradient(to bottom, rgba(10,10,10,0.8), transparent)",
+        backdropFilter: scrolled ? "blur(16px)" : "none",
+        borderBottom: scrolled ? "1px solid #2C3138" : "none",
+        transition: "all 0.35s ease",
       }}
     >
       <div
         style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 24px",
-          height: "72px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          maxWidth: "1280px", margin: "0 auto", padding: "0 24px",
+          height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between",
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center" }}>
           <Image
             src="/images/logo.png"
             alt="Fight Secrets"
@@ -62,7 +53,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: "32px" }} className="hidden-mobile">
+        <nav style={{ display: "flex", alignItems: "center", gap: "28px" }} className="nav-desktop">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -71,37 +62,24 @@ export default function Navbar() {
                 fontFamily: "'Inter', sans-serif",
                 fontSize: "13px",
                 fontWeight: 500,
-                letterSpacing: "0.08em",
+                letterSpacing: "0.06em",
                 textTransform: "uppercase",
-                color: "var(--silver-light)",
+                color: "#B7BDC5",
                 textDecoration: "none",
                 transition: "color 0.2s",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--silver-light)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#B7BDC5")}
             >
               {l.label}
             </Link>
           ))}
           <Link
             href="/training"
-            style={{
-              background: "var(--red-bright)",
-              color: "#fff",
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: "15px",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              padding: "10px 24px",
-              textDecoration: "none",
-              transition: "background 0.2s",
-              borderRadius: "2px",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#E8192C")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "var(--red-bright)")}
+            className="btn-primary"
+            style={{ fontSize: "13px", fontWeight: 600, padding: "10px 22px", letterSpacing: "0.08em" }}
           >
-            Train With James
+            Train with James
           </Link>
         </nav>
 
@@ -109,14 +87,8 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
-          style={{
-            background: "none",
-            border: "none",
-            color: "#fff",
-            cursor: "pointer",
-            display: "none",
-          }}
-          className="show-mobile"
+          style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", display: "none" }}
+          className="nav-hamburger"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -126,10 +98,10 @@ export default function Navbar() {
       {open && (
         <div
           style={{
-            background: "rgba(8,8,8,0.98)",
+            background: "rgba(10,10,10,0.98)",
             backdropFilter: "blur(16px)",
-            padding: "24px",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            padding: "20px 24px 32px",
+            borderTop: "1px solid #2C3138",
           }}
         >
           {links.map((l) => (
@@ -140,14 +112,14 @@ export default function Navbar() {
               style={{
                 display: "block",
                 padding: "14px 0",
-                fontFamily: "'Barlow Condensed', sans-serif",
+                fontFamily: "'Oswald', sans-serif",
                 fontSize: "18px",
-                fontWeight: 600,
+                fontWeight: 500,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "#fff",
+                color: "#C7CCD1",
                 textDecoration: "none",
-                borderBottom: "1px solid rgba(255,255,255,0.05)",
+                borderBottom: "1px solid rgba(44,49,56,0.6)",
               }}
             >
               {l.label}
@@ -156,34 +128,29 @@ export default function Navbar() {
           <Link
             href="/training"
             onClick={() => setOpen(false)}
+            className="btn-primary"
             style={{
               display: "block",
               marginTop: "20px",
-              background: "var(--red-bright)",
-              color: "#fff",
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: "16px",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
+              fontSize: "15px",
+              fontWeight: 600,
               padding: "14px 24px",
-              textDecoration: "none",
               textAlign: "center",
-              borderRadius: "2px",
+              letterSpacing: "0.08em",
             }}
           >
-            Train With James
+            Train with James
           </Link>
         </div>
       )}
 
       <style>{`
-        @media (max-width: 768px) {
-          .hidden-mobile { display: none !important; }
-          .show-mobile { display: block !important; }
+        @media (max-width: 900px) {
+          .nav-desktop   { display: none !important; }
+          .nav-hamburger { display: block !important; }
         }
-        @media (min-width: 769px) {
-          .show-mobile { display: none !important; }
+        @media (min-width: 901px) {
+          .nav-hamburger { display: none !important; }
         }
       `}</style>
     </header>

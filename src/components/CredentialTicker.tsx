@@ -2,37 +2,35 @@
 import Image from "next/image";
 
 const items = [
-  { label: "UFC Ultimate Fighter", sublabel: "Season 9 Champion", icon: "/images/ufc-logo.png" },
-  { label: "BJJ Black Belt", sublabel: "Gracie US Nationals Gold", icon: null },
-  { label: "Special Forces Instructor", sublabel: "Elite Combatives Trainer", icon: "/images/special-forces-icon.png" },
-  { label: "The Game Changers", sublabel: "James Cameron Production", icon: null },
-  { label: "TUF Season 9 Winner", sublabel: "Welterweight Champion", icon: "/images/ufc-logo.png" },
-  { label: "Combat Veteran", sublabel: "Pressure-Tested Training", icon: null },
-  { label: "Prepare · Protect · Prevail", sublabel: "The Fight Secrets Method", icon: null },
+  { label: "Elite Special Forces Instructor", icon: "/images/special-forces-icon.png" },
+  { label: "Winner of The Ultimate Fighter", icon: "/images/ufc-logo.png" },
+  { label: "Black Belt in Brazilian Jiu-Jitsu", icon: null },
+  { label: "World-Renowned Combatives Expert", icon: null },
+  { label: "U.S. Marshals Service Instructor", icon: null },
+  { label: "Marine Corps MCMAP Instructor", icon: "/images/special-forces-icon.png" },
+  { label: "Prepare · Protect · Prevail", icon: null },
 ];
 
-// Duplicate for seamless loop
 const doubled = [...items, ...items];
 
 export default function CredentialTicker() {
   return (
     <div
       style={{
-        background: "var(--surface)",
-        borderTop: "1px solid var(--border)",
-        borderBottom: "1px solid var(--border)",
-        padding: "18px 0",
+        background: "#1A1D21",
+        borderTop: "1px solid #2C3138",
+        borderBottom: "1px solid #2C3138",
+        padding: "16px 0",
         overflow: "hidden",
         position: "relative",
       }}
     >
-      {/* Left/right fade masks */}
+      {/* Edge fade masks */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background:
-            "linear-gradient(to right, var(--surface) 0%, transparent 10%, transparent 90%, var(--surface) 100%)",
+          background: "linear-gradient(to right, #1A1D21 0%, transparent 8%, transparent 92%, #1A1D21 100%)",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -41,8 +39,7 @@ export default function CredentialTicker() {
       <div
         style={{
           display: "flex",
-          gap: "0",
-          animation: "ticker 32s linear infinite",
+          animation: "ticker 36s linear infinite",
           width: "max-content",
         }}
       >
@@ -52,9 +49,9 @@ export default function CredentialTicker() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "12px",
-              padding: "0 40px",
-              borderRight: "1px solid var(--border)",
+              gap: "10px",
+              padding: "0 36px",
+              borderRight: "1px solid #2C3138",
               flexShrink: 0,
               whiteSpace: "nowrap",
             }}
@@ -63,17 +60,17 @@ export default function CredentialTicker() {
               <Image
                 src={item.icon}
                 alt={item.label}
-                width={22}
-                height={22}
-                style={{ objectFit: "contain", opacity: 0.7 }}
+                width={18}
+                height={18}
+                style={{ objectFit: "contain", opacity: 0.6 }}
               />
             ) : (
               <span
                 style={{
-                  width: "6px",
-                  height: "6px",
+                  width: "5px",
+                  height: "5px",
                   borderRadius: "50%",
-                  background: "var(--red-bright)",
+                  background: "#B5121B",
                   display: "block",
                   flexShrink: 0,
                 }}
@@ -81,38 +78,19 @@ export default function CredentialTicker() {
             )}
             <span
               style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontSize: "14px",
-                fontWeight: 700,
-                letterSpacing: "0.12em",
+                fontFamily: "'Oswald', sans-serif",
+                fontSize: "13px",
+                fontWeight: 500,
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "#fff",
+                color: "#C7CCD1",
               }}
             >
               {item.label}
             </span>
-            <span
-              style={{
-                fontSize: "12px",
-                color: "var(--text-secondary)",
-                letterSpacing: "0.04em",
-              }}
-            >
-              {item.sublabel}
-            </span>
           </div>
         ))}
       </div>
-
-      <style>{`
-        @keyframes ticker {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          [style*="ticker"] { animation: none !important; }
-        }
-      `}</style>
     </div>
   );
 }

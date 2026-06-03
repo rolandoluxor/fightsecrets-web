@@ -1,18 +1,11 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-interface Stat {
-  value: number;
-  suffix: string;
-  label: string;
-  sublabel?: string;
-}
-
-const stats: Stat[] = [
+const stats = [
   { value: 20, suffix: "+", label: "Years Experience", sublabel: "Combat & instruction" },
-  { value: 7, suffix: "", label: "UFC Wins", sublabel: "Professional MMA" },
+  { value: 7,  suffix: "",  label: "UFC Wins",          sublabel: "Professional MMA" },
   { value: 100, suffix: "+", label: "Elite Units Trained", sublabel: "Military & federal" },
-  { value: 3, suffix: "", label: "Championship Titles", sublabel: "TUF · BJJ · Gladiator" },
+  { value: 3,  suffix: "",  label: "Championship Titles", sublabel: "TUF · BJJ · Gladiator" },
 ];
 
 function Counter({ value, suffix, duration = 1800 }: { value: number; suffix: string; duration?: number }) {
@@ -30,7 +23,6 @@ function Counter({ value, suffix, duration = 1800 }: { value: number; suffix: st
           const start = performance.now();
           const tick = (now: number) => {
             const progress = Math.min((now - start) / duration, 1);
-            // ease-out cubic
             const eased = 1 - Math.pow(1 - progress, 3);
             setCount(Math.round(eased * value));
             if (progress < 1) requestAnimationFrame(tick);
@@ -45,45 +37,37 @@ function Counter({ value, suffix, duration = 1800 }: { value: number; suffix: st
     return () => observer.disconnect();
   }, [value, duration]);
 
-  return (
-    <span ref={ref}>
-      {count}{suffix}
-    </span>
-  );
+  return <span ref={ref}>{count}{suffix}</span>;
 }
 
 export default function StatsCounter() {
   return (
     <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        gap: "2px",
-      }}
+      style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2px" }}
       className="stats-grid"
     >
-      {stats.map((s) => (
+      {stats.map((s, i) => (
         <div
           key={s.label}
           style={{
-            background: "var(--surface-2)",
-            border: "1px solid var(--border)",
-            padding: "40px 32px",
+            background: "#1A1D21",
+            border: "1px solid #2C3138",
+            padding: "36px 28px",
             textAlign: "center",
             position: "relative",
             overflow: "hidden",
-            transition: "border-color 0.3s",
+            transition: "border-color 0.25s",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(204,17,34,0.3)")}
-          onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
+          onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(181,18,27,0.3)")}
+          onMouseLeave={(e) => (e.currentTarget.style.borderColor = "#2C3138")}
         >
           <div
             style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: "clamp(48px, 5vw, 72px)",
-              fontWeight: 900,
+              fontFamily: "'Oswald', sans-serif",
+              fontSize: "clamp(44px, 5vw, 64px)",
+              fontWeight: 700,
               lineHeight: 1,
-              color: "var(--red-bright)",
+              color: "#B5121B",
               marginBottom: "8px",
             }}
           >
@@ -91,42 +75,39 @@ export default function StatsCounter() {
           </div>
           <div
             style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: "16px",
-              fontWeight: 700,
+              fontFamily: "'Oswald', sans-serif",
+              fontSize: "15px",
+              fontWeight: 600,
               textTransform: "uppercase",
               letterSpacing: "0.08em",
-              color: "#fff",
+              color: "#F2F4F6",
               marginBottom: "4px",
             }}
           >
             {s.label}
           </div>
-          {s.sublabel && (
-            <div style={{ fontSize: "12px", color: "var(--text-secondary)" }}>{s.sublabel}</div>
-          )}
-          {/* Corner accent */}
+          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", color: "#7A828C" }}>
+            {s.sublabel}
+          </div>
+          {/* Bottom left accent */}
           <div
             style={{
               position: "absolute",
               bottom: 0,
               left: 0,
-              width: "40px",
-              height: "2px",
-              background: "var(--red-bright)",
-              opacity: 0.4,
+              width: i === 0 ? "100%" : "32px",
+              height: "1px",
+              background: "#B5121B",
+              opacity: 0.25,
+              transition: "width 0.4s ease",
             }}
           />
         </div>
       ))}
 
       <style>{`
-        @media (max-width: 768px) {
-          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 480px) {
-          .stats-grid { grid-template-columns: 1fr !important; }
-        }
+        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </div>
   );

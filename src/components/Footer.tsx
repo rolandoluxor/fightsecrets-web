@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: "var(--surface)",
-        borderTop: "1px solid var(--border)",
+        background: "#1A1D21",
+        borderTop: "1px solid #2C3138",
         padding: "64px 24px 32px",
       }}
     >
@@ -29,22 +29,22 @@ export default function Footer() {
               height={48}
               style={{ objectFit: "contain", marginBottom: "16px" }}
             />
-            <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.7", maxWidth: "280px" }}>
-              Elite self-defense training from UFC champion and Special Forces combatives instructor James Wilks.
+            <p style={{ fontFamily: "'Inter', sans-serif", color: "#B7BDC5", fontSize: "13px", lineHeight: "1.7", maxWidth: "280px", marginBottom: "16px" }}>
+              Elite self-defense training from UFC champion and Special Forces
+              combatives instructor James Wilks.
             </p>
             <span
               style={{
-                display: "inline-block",
-                marginTop: "16px",
-                fontFamily: "'Barlow Condensed', sans-serif",
+                fontFamily: "'Oswald', sans-serif",
                 fontSize: "11px",
-                fontWeight: 700,
-                letterSpacing: "0.2em",
-                color: "var(--red-bright)",
+                fontWeight: 500,
+                letterSpacing: "0.22em",
+                color: "#B5121B",
                 textTransform: "uppercase",
+                display: "block",
               }}
             >
-              Prepare. Protect. Prevail.
+              Prepare · Protect · Prevail
             </span>
           </div>
 
@@ -52,12 +52,12 @@ export default function Footer() {
           <div>
             <h4
               style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
+                fontFamily: "'Oswald', sans-serif",
                 fontSize: "13px",
-                fontWeight: 700,
-                letterSpacing: "0.15em",
+                fontWeight: 600,
+                letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "var(--silver-light)",
+                color: "#C7CCD1",
                 marginBottom: "20px",
               }}
             >
@@ -76,14 +76,15 @@ export default function Footer() {
                 href={href}
                 style={{
                   display: "block",
-                  color: "var(--text-secondary)",
-                  fontSize: "14px",
+                  fontFamily: "'Inter', sans-serif",
+                  color: "#7A828C",
+                  fontSize: "13px",
                   textDecoration: "none",
                   marginBottom: "10px",
                   transition: "color 0.2s",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#C7CCD1")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#7A828C")}
               >
                 {label}
               </Link>
@@ -94,45 +95,35 @@ export default function Footer() {
           <div>
             <h4
               style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
+                fontFamily: "'Oswald', sans-serif",
                 fontSize: "13px",
-                fontWeight: 700,
-                letterSpacing: "0.15em",
+                fontWeight: 600,
+                letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "var(--silver-light)",
+                color: "#C7CCD1",
                 marginBottom: "20px",
               }}
             >
               Get In Touch
             </h4>
-            <p style={{ color: "var(--text-secondary)", fontSize: "14px", marginBottom: "16px", lineHeight: "1.6" }}>
-              Ready to train? James works with a limited number of private clients and organizations each year.
+            <p style={{ fontFamily: "'Inter', sans-serif", color: "#B7BDC5", fontSize: "13px", marginBottom: "20px", lineHeight: "1.7" }}>
+              Ready to train? James works with a limited number of private
+              clients and organizations each year.
             </p>
             <Link
               href="/contact"
-              style={{
-                display: "inline-block",
-                background: "var(--red-bright)",
-                color: "#fff",
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontSize: "14px",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                padding: "10px 20px",
-                textDecoration: "none",
-                borderRadius: "2px",
-              }}
+              className="btn-primary"
+              style={{ fontSize: "12px", fontWeight: 600, padding: "10px 20px", letterSpacing: "0.08em", display: "inline-block" }}
             >
               Inquire Now
             </Link>
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* Bottom */}
         <div
           style={{
-            borderTop: "1px solid var(--border)",
+            borderTop: "1px solid #2C3138",
             paddingTop: "24px",
             display: "flex",
             flexWrap: "wrap",
@@ -141,16 +132,19 @@ export default function Footer() {
             alignItems: "center",
           }}
         >
-          <p style={{ color: "var(--text-secondary)", fontSize: "13px" }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", color: "#7A828C", fontSize: "12px" }}>
             © {new Date().getFullYear()} Fight Secrets / James Wilks. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: "24px" }}>
-            <Link href="/privacy" style={{ color: "var(--text-secondary)", fontSize: "13px", textDecoration: "none" }}>
-              Privacy Policy
-            </Link>
-            <Link href="/terms" style={{ color: "var(--text-secondary)", fontSize: "13px", textDecoration: "none" }}>
-              Terms
-            </Link>
+            {[["Privacy Policy", "/privacy"], ["Terms", "/terms"]].map(([l, h]) => (
+              <Link
+                key={h}
+                href={h}
+                style={{ fontFamily: "'Inter', sans-serif", color: "#7A828C", fontSize: "12px", textDecoration: "none" }}
+              >
+                {l}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
