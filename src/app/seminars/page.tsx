@@ -102,7 +102,7 @@ export default function SeminarsPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }} className="focus-grid">
             {focusAreas.map((f, i) => (
               <AnimateOnScroll key={f.num} animation="fadeInUp" delay={i * 80}>
-                <div style={{ background: "#141619", border: "1px solid #2C3138", borderTop: "3px solid rgba(181,18,27,0.4)", borderRadius: "10px", padding: "28px 24px", boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}>
+                <div style={{ background: "#141619", border: "1px solid #2C3138", borderTop: "3px solid rgba(181,18,27,0.4)", borderRadius: "10px", padding: "28px 24px", boxShadow: "0 4px 20px rgba(0,0,0,0.3)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
                   <div style={{ fontFamily: "'Oswald', sans-serif", fontSize: "13px", fontWeight: 700, color: "#B5121B", letterSpacing: "0.12em", marginBottom: "12px" }}>{f.num}</div>
                   <div style={{ fontFamily: "'Oswald', sans-serif", fontSize: "17px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "#F2F4F6", lineHeight: 1.2 }}>{f.label}</div>
                 </div>
