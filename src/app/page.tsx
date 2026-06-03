@@ -260,9 +260,6 @@ export default function HomePage() {
             animation: "fadeIn 1s ease 1.5s both",
           }}
         >
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "9px", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A828C" }}>
-            Scroll
-          </span>
           <div
             style={{
               width: "1px",
