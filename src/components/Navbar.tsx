@@ -41,13 +41,28 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ display: "flex", alignItems: "center" }}>
+        <Link
+          href="/"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            height: "44px",
+            overflow: "hidden",
+            flexShrink: 0,
+          }}
+        >
           <Image
             src="/images/logo.png"
             alt="Fight Secrets"
-            width={140}
-            height={48}
-            style={{ objectFit: "contain" }}
+            width={130}
+            height={44}
+            style={{
+              objectFit: "contain",
+              objectPosition: "left center",
+              display: "block",
+              maxHeight: "44px",
+              width: "auto",
+            }}
             priority
           />
         </Link>
