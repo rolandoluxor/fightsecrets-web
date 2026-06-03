@@ -38,17 +38,17 @@ export default function Navbar() {
       <div
         style={{
           maxWidth: "1280px", margin: "0 auto", padding: "0 32px",
-          height: "96px", display: "flex", alignItems: "center", justifyContent: "space-between",
+          height: "100px", display: "flex", alignItems: "center", justifyContent: "space-between",
         }}
       >
         {/* Logo */}
         <Link href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
           <Image
-            src="/images/logo-transparent.png"
-            alt="Fight Secrets"
-            width={160}
-            height={105}
-            style={{ objectFit: "contain", display: "block", height: "68px", width: "auto" }}
+            src="/images/logo-nav.png"
+            alt="Fight Secrets – Prepare. Protect. Prevail."
+            width={320}
+            height={80}
+            style={{ objectFit: "contain", display: "block", height: "72px", width: "auto" }}
             priority
           />
         </Link>
