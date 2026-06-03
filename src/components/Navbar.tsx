@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const links = [
+  { label: "Home", href: "/" },
   { label: "About James", href: "/about" },
   { label: "The Method", href: "/method" },
   { label: "Private Training", href: "/training" },
@@ -36,33 +37,18 @@ export default function Navbar() {
     >
       <div
         style={{
-          maxWidth: "1280px", margin: "0 auto", padding: "0 24px",
-          height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between",
+          maxWidth: "1280px", margin: "0 auto", padding: "0 32px",
+          height: "80px", display: "flex", alignItems: "center", justifyContent: "space-between",
         }}
       >
         {/* Logo */}
-        <Link
-          href="/"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            height: "44px",
-            overflow: "hidden",
-            flexShrink: 0,
-          }}
-        >
+        <Link href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
           <Image
             src="/images/logo.png"
             alt="Fight Secrets"
-            width={130}
-            height={44}
-            style={{
-              objectFit: "contain",
-              objectPosition: "left center",
-              display: "block",
-              maxHeight: "44px",
-              width: "auto",
-            }}
+            width={180}
+            height={60}
+            style={{ objectFit: "contain", display: "block" }}
             priority
           />
         </Link>

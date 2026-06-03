@@ -106,7 +106,7 @@ export default function HomePage() {
             zIndex: 2,
             maxWidth: "1280px",
             margin: "0 auto",
-            padding: "120px 24px 80px",
+            padding: "130px 24px 80px",
             width: "100%",
           }}
         >
