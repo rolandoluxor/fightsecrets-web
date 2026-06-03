@@ -294,11 +294,11 @@ export default function HomePage() {
       </section>
 
       {/* ─── SECTION 3: TRAIN WITH A TRUSTED EXPERT ─── */}
+      <hr className="section-divider" style={{ margin: 0 }} />
       <section
         style={{
           padding: "100px 24px 120px",
           background: "#1A1D21",
-          borderTop: "1px solid #2C3138",
         }}
       >
         <div
@@ -320,7 +320,7 @@ export default function HomePage() {
                   position: "absolute",
                   top: "20px", left: "20px", right: "-20px", bottom: "-20px",
                   border: "1px solid rgba(181,18,27,0.18)",
-                  borderRadius: "3px",
+                  borderRadius: "10px",
                   zIndex: 0,
                 }}
               />
@@ -328,7 +328,7 @@ export default function HomePage() {
                 style={{
                   position: "relative",
                   zIndex: 1,
-                  borderRadius: "3px",
+                  borderRadius: "10px",
                   overflow: "hidden",
                   aspectRatio: "4/5",
                 }}
@@ -403,7 +403,8 @@ export default function HomePage() {
       </section>
 
       {/* ─── SECTION 4: WHY MOST TRAINING FAILS ─── */}
-      <section style={{ padding: "100px 24px 120px", background: "#0A0A0A", borderTop: "1px solid #2C3138" }}>
+      <hr className="section-divider" style={{ margin: 0 }} />
+      <section style={{ padding: "100px 24px 120px", background: "#0A0A0A" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <AnimateOnScroll animation="fadeInUp" style={{ marginBottom: "64px" }}>
             <span style={{ display: "block", width: "40px", height: "2px", background: "#B5121B", marginBottom: "20px" }} />
@@ -440,6 +441,7 @@ export default function HomePage() {
                     background: "#1A1D21",
                     border: "1px solid #2C3138",
                     borderTop: "3px solid #B5121B",
+                    borderRadius: "10px",
                     padding: "0",
                     height: "100%",
                     display: "flex",
@@ -544,6 +546,7 @@ export default function HomePage() {
               style={{
                 background: "linear-gradient(135deg, rgba(181,18,27,0.1), rgba(181,18,27,0.03))",
                 border: "1px solid rgba(181,18,27,0.2)",
+                borderRadius: "10px",
                 padding: "52px 48px",
                 textAlign: "center",
                 position: "relative",
@@ -601,10 +604,10 @@ export default function HomePage() {
       </section>
 
       {/* ─── SECTION 5: THE FIGHT SECRETS METHOD ─── */}
+      <hr className="section-divider" style={{ margin: 0 }} />
       <section style={{
         padding: "100px 24px 120px",
         background: "#0e1013",
-        borderTop: "1px solid #2C3138",
         position: "relative",
         overflow: "hidden",
       }}>
@@ -699,6 +702,7 @@ export default function HomePage() {
                     background: i === 1 ? "rgba(181,18,27,0.06)" : "#141619",
                     border: i === 1 ? "1px solid rgba(181,18,27,0.3)" : "1px solid #2C3138",
                     borderTop: i === 1 ? "3px solid #B5121B" : "3px solid rgba(181,18,27,0.35)",
+                    borderRadius: "10px",
                     position: "relative",
                     height: "100%",
                     display: "flex",
@@ -840,7 +844,8 @@ export default function HomePage() {
       </section>
 
       {/* ─── SECTION 5b: TESTIMONIALS ─── */}
-      <section style={{ padding: "100px 24px 120px", background: "#0A0A0A", borderTop: "1px solid #2C3138" }}>
+      <hr className="section-divider" style={{ margin: 0 }} />
+      <section style={{ padding: "100px 24px 120px", background: "#0A0A0A" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <AnimateOnScroll animation="fadeInUp" style={{ marginBottom: "48px" }}>
             <span style={{ display: "block", width: "40px", height: "2px", background: "#B5121B", marginBottom: "20px" }} />
@@ -868,7 +873,8 @@ export default function HomePage() {
       </section>
 
       {/* ─── SECTION 6: LEAD MAGNET ─── */}
-      <section style={{ padding: "100px 24px", background: "#1A1D21", borderTop: "1px solid #2C3138" }}>
+      <hr className="section-divider" style={{ margin: 0 }} />
+      <section style={{ padding: "100px 24px", background: "#1A1D21" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div
             style={{
@@ -933,7 +939,9 @@ export default function HomePage() {
                 style={{
                   background: "#141619",
                   border: "1px solid #2C3138",
+                  borderRadius: "10px",
                   padding: "40px",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.4)",
                 }}
               >
                 <h3
@@ -958,6 +966,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── SECTION 7: FINAL CTA ─── */}
+      <hr className="section-divider" style={{ margin: 0 }} />
       <section
         style={{
           padding: "120px 24px",
@@ -965,7 +974,6 @@ export default function HomePage() {
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
-          borderTop: "1px solid #2C3138",
         }}
       >
         <div
