@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import TimelineSection from "@/components/TimelineSection";
 
 export const metadata: Metadata = {
   title: "About James Wilks | Fight Secrets",
@@ -298,58 +299,7 @@ export default function AboutPage() {
           >
             Career Timeline
           </h2>
-          <div style={{ position: "relative" }}>
-            <div
-              style={{
-                position: "absolute",
-                left: "68px",
-                top: 0, bottom: 0,
-                width: "1px",
-                background: "#2C3138",
-              }}
-            />
-            {timeline.map((t, i) => (
-              <div
-                key={t.year}
-                style={{
-                  display: "flex",
-                  gap: "28px",
-                  alignItems: "flex-start",
-                  marginBottom: i < timeline.length - 1 ? "36px" : 0,
-                  position: "relative",
-                }}
-              >
-                <div style={{ width: "68px", flexShrink: 0, textAlign: "right", paddingRight: "16px", position: "relative" }}>
-                  <span
-                    style={{
-                      fontFamily: "'Oswald', sans-serif",
-                      fontSize: "13px",
-                      fontWeight: 600,
-                      color: "#B5121B",
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    {t.year}
-                  </span>
-                  <span
-                    style={{
-                      position: "absolute",
-                      right: "-5px",
-                      top: "4px",
-                      width: "9px",
-                      height: "9px",
-                      borderRadius: "50%",
-                      background: "#B5121B",
-                      border: "2px solid #1A1D21",
-                    }}
-                  />
-                </div>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "#B7BDC5", lineHeight: "1.65", paddingTop: "1px" }}>
-                  {t.event}
-                </p>
-              </div>
-            ))}
-          </div>
+          <TimelineSection />
         </div>
       </section>
 
