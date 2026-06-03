@@ -429,7 +429,7 @@ export default function HomePage() {
           </AnimateOnScroll>
 
           <div
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px", marginBottom: "48px" }}
+            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "48px" }}
             className="fails-grid"
           >
             {failPoints.map((item, i) => (
@@ -439,41 +439,97 @@ export default function HomePage() {
                   style={{
                     background: "#1A1D21",
                     border: "1px solid #2C3138",
-                    padding: "44px 40px",
+                    borderTop: "3px solid #B5121B",
+                    padding: "0",
                     height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    overflow: "hidden",
+                    position: "relative",
                   }}
                 >
-                  <Image src={item.icon} alt={item.title} width={44} height={44} style={{ marginBottom: "20px", opacity: 0.5 }} />
-                  <h3
+                  {/* Icon hero strip */}
+                  <div
                     style={{
-                      fontFamily: "'Oswald', sans-serif",
-                      fontSize: "22px",
-                      fontWeight: 600,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.06em",
-                      color: "#C7CCD1",
-                      marginBottom: "20px",
+                      position: "relative",
+                      padding: "40px 44px 32px",
+                      background: "linear-gradient(135deg, rgba(181,18,27,0.08) 0%, rgba(26,29,33,0) 60%)",
+                      borderBottom: "1px solid #2C3138",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "24px",
                     }}
                   >
-                    {item.title}
-                  </h3>
-                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
-                    {item.points.map((p) => (
-                      <li key={p} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                    {/* Glow behind icon */}
+                    <div
+                      style={{
+                        position: "relative",
+                        flexShrink: 0,
+                        width: "88px",
+                        height: "88px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          borderRadius: "50%",
+                          background: "radial-gradient(circle, rgba(181,18,27,0.18) 0%, transparent 70%)",
+                        }}
+                      />
+                      <Image
+                        src={item.icon}
+                        alt={item.title}
+                        width={64}
+                        height={64}
+                        style={{ position: "relative", zIndex: 1, opacity: 0.9, filter: "drop-shadow(0 0 12px rgba(181,18,27,0.4))" }}
+                      />
+                    </div>
+                    <h3
+                      style={{
+                        fontFamily: "'Oswald', sans-serif",
+                        fontSize: "26px",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.06em",
+                        color: "#F2F4F6",
+                        lineHeight: 1.15,
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  {/* Points list */}
+                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0", padding: "8px 0", flex: 1 }}>
+                    {item.points.map((p, idx) => (
+                      <li
+                        key={p}
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          padding: "16px 44px",
+                          borderBottom: idx < item.points.length - 1 ? "1px solid rgba(44,49,56,0.6)" : "none",
+                        }}
+                      >
                         <span
                           style={{
-                            content: "✕",
                             fontFamily: "'Inter', sans-serif",
-                            fontSize: "11px",
-                            fontWeight: 700,
+                            fontSize: "12px",
+                            fontWeight: 800,
                             color: "#B5121B",
                             flexShrink: 0,
-                            marginTop: "3px",
+                            marginTop: "2px",
+                            letterSpacing: "0.05em",
                           }}
                         >
                           ✕
                         </span>
-                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "#7A828C", lineHeight: "1.65" }}>{p}</span>
+                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", color: "#9AA0A8", lineHeight: "1.6" }}>{p}</span>
                       </li>
                     ))}
                   </ul>
