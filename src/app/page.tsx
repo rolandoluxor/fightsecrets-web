@@ -10,21 +10,21 @@ const method = [
   {
     phase: "01",
     title: "Prepare",
-    icon: "/images/icon-prepare.png",
+    icon: "/images/icon-prepare-new.png",
     description:
       "Develop proper situational awareness, threat recognition, prevention strategies, and psychological readiness before violence occurs.",
   },
   {
     phase: "02",
     title: "Protect",
-    icon: "/images/icon-protect.png",
+    icon: "/images/icon-protect-new.png",
     description:
       "Build practical, pressure-tested defensive skills and protective capabilities designed to function reliably under real-world stress.",
   },
   {
     phase: "03",
     title: "Prevail",
-    icon: "/images/icon-prevail.png",
+    icon: "/images/icon-prevail-new.png",
     description:
       "Apply intelligent decision-making under pressure to achieve the best possible outcome — physically, emotionally and legally.",
   },
@@ -639,68 +639,142 @@ export default function HomePage() {
           </AnimateOnScroll>
 
           <div
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2px" }}
+            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}
             className="method-grid"
           >
             {method.map((m, i) => (
-              <AnimateOnScroll key={m.phase} animation="fadeInUp" delay={i * 110}>
+              <AnimateOnScroll key={m.phase} animation="fadeInUp" delay={i * 120}>
                 <div
-                  className="card-hover"
+                  className={`card-hover method-card method-card-${i}`}
                   style={{
-                    background: i === 1 ? "rgba(181,18,27,0.05)" : "#141619",
-                    border: i === 1 ? "1px solid rgba(181,18,27,0.2)" : "1px solid #2C3138",
-                    padding: "44px 36px",
+                    background: i === 1 ? "rgba(181,18,27,0.06)" : "#141619",
+                    border: i === 1 ? "1px solid rgba(181,18,27,0.3)" : "1px solid #2C3138",
+                    borderTop: i === 1 ? "3px solid #B5121B" : "3px solid rgba(181,18,27,0.35)",
                     position: "relative",
                     height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    overflow: "hidden",
                   }}
                 >
-                  {/* Ghost number */}
-                  <div
-                    style={{
-                      fontFamily: "'Oswald', sans-serif",
-                      fontSize: "80px",
-                      fontWeight: 700,
-                      color: "rgba(255,255,255,0.03)",
-                      lineHeight: 1,
-                      position: "absolute",
-                      top: "20px",
-                      right: "28px",
-                      userSelect: "none",
-                    }}
-                  >
+                  {/* Ambient glow bg for center card */}
+                  {i === 1 && (
+                    <div style={{
+                      position: "absolute", inset: 0,
+                      background: "radial-gradient(ellipse at 50% 0%, rgba(181,18,27,0.13) 0%, transparent 65%)",
+                      pointerEvents: "none",
+                    }} />
+                  )}
+
+                  {/* Ghost number watermark */}
+                  <div style={{
+                    position: "absolute",
+                    bottom: "-10px",
+                    right: "16px",
+                    fontFamily: "'Oswald', sans-serif",
+                    fontSize: "130px",
+                    fontWeight: 800,
+                    lineHeight: 1,
+                    color: i === 1 ? "rgba(181,18,27,0.07)" : "rgba(255,255,255,0.035)",
+                    userSelect: "none",
+                    pointerEvents: "none",
+                    letterSpacing: "-0.04em",
+                  }}>
                     {m.phase}
                   </div>
-                  <Image
-                    src={m.icon}
-                    alt={m.title}
-                    width={52}
-                    height={52}
-                    style={{ marginBottom: "20px", transition: "transform 0.3s ease" }}
-                    className="method-icon"
-                  />
-                  <h3
-                    style={{
-                      fontFamily: "'Oswald', sans-serif",
-                      fontSize: "28px",
-                      fontWeight: 600,
+
+                  {/* Icon pedestal */}
+                  <div style={{
+                    position: "relative",
+                    padding: "48px 40px 36px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderBottom: "1px solid rgba(44,49,56,0.7)",
+                  }}>
+                    {/* Outer ring glow */}
+                    <div style={{
+                      position: "absolute",
+                      width: "160px",
+                      height: "160px",
+                      borderRadius: "50%",
+                      background: i === 1
+                        ? "radial-gradient(circle, rgba(181,18,27,0.22) 0%, transparent 70%)"
+                        : "radial-gradient(circle, rgba(181,18,27,0.12) 0%, transparent 70%)",
+                    }} />
+                    {/* Icon ring border */}
+                    <div style={{
+                      position: "relative",
+                      width: "120px",
+                      height: "120px",
+                      borderRadius: "50%",
+                      border: i === 1 ? "1px solid rgba(181,18,27,0.4)" : "1px solid rgba(44,49,56,0.9)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: i === 1 ? "rgba(181,18,27,0.08)" : "rgba(20,22,25,0.8)",
+                    }}>
+                      <Image
+                        src={m.icon}
+                        alt={m.title}
+                        width={72}
+                        height={72}
+                        style={{
+                          objectFit: "contain",
+                          filter: i === 1
+                            ? "drop-shadow(0 0 16px rgba(181,18,27,0.7))"
+                            : "drop-shadow(0 0 10px rgba(181,18,27,0.4))",
+                          transition: "transform 0.35s ease, filter 0.35s ease",
+                        }}
+                        className="method-icon"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div style={{ padding: "32px 36px 44px", position: "relative", flex: 1 }}>
+                    {/* Phase label */}
+                    <span style={{
+                      display: "block",
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "11px",
+                      fontWeight: 700,
+                      letterSpacing: "0.2em",
                       textTransform: "uppercase",
-                      letterSpacing: "0.06em",
-                      color: i === 1 ? "#B5121B" : "#F2F4F6",
-                      marginBottom: "14px",
-                    }}
-                  >
-                    {m.title}
-                  </h3>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "#B7BDC5", lineHeight: "1.75" }}>
-                    {m.description}
-                  </p>
+                      color: "#B5121B",
+                      marginBottom: "10px",
+                    }}>
+                      Phase {m.phase}
+                    </span>
+                    <h3 style={{
+                      fontFamily: "'Oswald', sans-serif",
+                      fontSize: "34px",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.04em",
+                      color: "#F2F4F6",
+                      marginBottom: "16px",
+                      lineHeight: 1.05,
+                    }}>
+                      {m.title}
+                    </h3>
+                    {/* Red accent line */}
+                    <div style={{ width: "32px", height: "2px", background: "#B5121B", marginBottom: "18px" }} />
+                    <p style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "15px",
+                      color: "#9AA0A8",
+                      lineHeight: "1.75",
+                    }}>
+                      {m.description}
+                    </p>
+                  </div>
                 </div>
               </AnimateOnScroll>
             ))}
           </div>
 
-          <AnimateOnScroll animation="fadeInUp" delay={200} style={{ textAlign: "center", marginTop: "40px" }}>
-            {/* Secondary CTA — deepens curiosity, not conversion */}
+          <AnimateOnScroll animation="fadeInUp" delay={200} style={{ textAlign: "center", marginTop: "48px" }}>
             <Link
               href="/method"
               className="btn-secondary"
@@ -712,7 +786,7 @@ export default function HomePage() {
         </div>
         <style>{`
           @media(max-width:768px){.method-grid{grid-template-columns:1fr!important;}}
-          .card-hover:hover .method-icon{transform:scale(1.1) rotate(-3deg);}
+          .method-card:hover .method-icon{transform:scale(1.12) rotate(-4deg);filter:drop-shadow(0 0 22px rgba(181,18,27,0.85))!important;}
         `}</style>
       </section>
 
