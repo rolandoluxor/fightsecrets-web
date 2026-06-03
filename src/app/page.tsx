@@ -846,8 +846,8 @@ export default function HomePage() {
       {/* ─── SECTION 5b: TESTIMONIALS ─── */}
       <hr className="section-divider" style={{ margin: 0 }} />
       <section style={{ padding: "100px 24px 120px", background: "#0A0A0A" }}>
-        <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <AnimateOnScroll animation="fadeInUp" style={{ marginBottom: "48px" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+          <AnimateOnScroll animation="fadeInUp" style={{ marginBottom: "56px" }}>
             <span style={{ display: "block", width: "40px", height: "2px", background: "#B5121B", marginBottom: "20px" }} />
             <h2
               style={{
@@ -866,9 +866,7 @@ export default function HomePage() {
             </h2>
           </AnimateOnScroll>
 
-          <AnimateOnScroll animation="fadeInUp" delay={100}>
-            <TestimonialsCarousel />
-          </AnimateOnScroll>
+          <TestimonialsCarousel />
         </div>
       </section>
 
