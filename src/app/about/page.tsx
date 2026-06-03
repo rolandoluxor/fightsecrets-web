@@ -33,7 +33,7 @@ export default function AboutPage() {
       {/* HERO */}
       <section
         style={{
-          padding: "140px 24px 80px",
+          padding: "156px 24px 80px",
           background: "#0A0A0A",
           position: "relative",
           overflow: "hidden",

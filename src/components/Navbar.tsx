@@ -38,7 +38,7 @@ export default function Navbar() {
       <div
         style={{
           maxWidth: "1280px", margin: "0 auto", padding: "0 32px",
-          height: "80px", display: "flex", alignItems: "center", justifyContent: "space-between",
+          height: "96px", display: "flex", alignItems: "center", justifyContent: "space-between",
         }}
       >
         {/* Logo */}
@@ -46,8 +46,8 @@ export default function Navbar() {
           <Image
             src="/images/logo.png"
             alt="Fight Secrets"
-            width={180}
-            height={60}
+            width={200}
+            height={76}
             style={{ objectFit: "contain", display: "block" }}
             priority
           />

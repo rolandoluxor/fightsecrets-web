@@ -62,7 +62,7 @@ export default function TrainingPage() {
   return (
     <>
       {/* HERO */}
-      <section style={{ padding: "140px 24px 80px", background: "#0A0A0A", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "156px 24px 80px", background: "#0A0A0A", position: "relative", overflow: "hidden" }}>
         <div
           style={{
             position: "absolute", inset: 0,

@@ -4,7 +4,7 @@ export const metadata: Metadata = { title: "Terms of Use | Fight Secrets" };
 
 export default function TermsPage() {
   return (
-    <section style={{ padding: "140px 24px 120px", background: "var(--black)" }}>
+    <section style={{ padding: "156px 24px 120px", background: "var(--black)" }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         <h1
           style={{

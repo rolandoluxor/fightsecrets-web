@@ -42,7 +42,7 @@ export default function ContactPage() {
   return (
     <>
       {/* HERO */}
-      <section style={{ padding: "140px 24px 80px", background: "var(--black)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "156px 24px 80px", background: "var(--black)", position: "relative", overflow: "hidden" }}>
         <div
           style={{
             position: "absolute",
