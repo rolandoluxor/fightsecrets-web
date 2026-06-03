@@ -601,8 +601,57 @@ export default function HomePage() {
       </section>
 
       {/* ─── SECTION 5: THE FIGHT SECRETS METHOD ─── */}
-      <section style={{ padding: "100px 24px 120px", background: "#1A1D21", borderTop: "1px solid #2C3138" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <section style={{
+        padding: "100px 24px 120px",
+        background: "#0e1013",
+        borderTop: "1px solid #2C3138",
+        position: "relative",
+        overflow: "hidden",
+      }}>
+        {/* ── Textured bg: diagonal grid + atmospheric glow ── */}
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none" }}>
+          {/* Diagonal fine-line grid */}
+          <div style={{
+            position: "absolute", inset: 0,
+            backgroundImage: `
+              repeating-linear-gradient(
+                -45deg,
+                rgba(255,255,255,0.018) 0px,
+                rgba(255,255,255,0.018) 1px,
+                transparent 1px,
+                transparent 40px
+              ),
+              repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.018) 0px,
+                rgba(255,255,255,0.018) 1px,
+                transparent 1px,
+                transparent 40px
+              )
+            `,
+          }} />
+          {/* Central red atmospheric glow */}
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(181,18,27,0.10) 0%, transparent 70%)",
+          }} />
+          {/* Top vignette */}
+          <div style={{
+            position: "absolute", top: 0, left: 0, right: 0, height: "200px",
+            background: "linear-gradient(to bottom, #0e1013, transparent)",
+          }} />
+          {/* Bottom vignette */}
+          <div style={{
+            position: "absolute", bottom: 0, left: 0, right: 0, height: "200px",
+            background: "linear-gradient(to top, #0e1013, transparent)",
+          }} />
+          {/* Left + right vignettes */}
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to right, #0e1013 0%, transparent 15%, transparent 85%, #0e1013 100%)",
+          }} />
+        </div>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <AnimateOnScroll animation="fadeInUp" style={{ textAlign: "center", marginBottom: "64px" }}>
             <span style={{ display: "block", width: "40px", height: "2px", background: "#B5121B", margin: "0 auto 20px" }} />
             <h2
